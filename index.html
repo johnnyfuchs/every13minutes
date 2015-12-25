@@ -1,40 +1,414 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>heroku-static-site -- basic HTML+CSS+JS website on Heroku</title>
-  <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" charset="utf-8" />
-  <script src="js/application.js" type="text/javascript" charset="utf-8"></script>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+  <style type="text/css">
 
+* {
+  border: 1px green solid;
+  color: white;
+}
+html {
+  font-family: "Helvetica" sans-serif;
+}
+body {
+  color: white;
+  background-color: #000000;
+}
+.background-image {
+  z-index: -1;
+  content: "";
+  background-image: url(balloons.jpg);
+  background-position: center top;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.darken {
+  animation: darken 2s 0s ease-out forwards;
+}
+
+.background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  position: fixed;
+}
+
+
+
+/*
+Layout
+*/
+.sections {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 600px;
+  margin: 50px auto 0 auto;
+}
+.title-section {
+  margin: 30px 0;
+}
+.timer-section {
+  margin: 20px 0;
+}
+.bar-section {
+  margin: 10px 0;
+}
+.action-section{
+  margin: 40px 0;
+}
+
+.title {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  /*flex: 0 1 auto;*/
+  font-size: 2.15em;
+  /*margin: 1.5em;*/
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.relationship {
+  padding: 0 0.5em 0 0.5em;
+}
+
+.fadedown {
+  animation: fadedown 3s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.timer {
+  font-size: 4.5em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.bar,
+.progress {
+  height: 40px;
+}
+.bar {
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.progress {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.pulse {
+  animation: pulse 3s infinite;
+  animation-timing-function: ease-out;
+}
+.button {
+  font-size: 1.6em;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: lighter;
+  padding: 0.2em;
+  margin: 0.2em;
+  border: 1px solid white;
+}
+.video_wrapper {
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  position: fixed;
+}
+.video {
+  z-index: 5;
+  position: absolute;
+  width:560px;
+  height:315px;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+.video.full {
+  width:90%;
+  height:65%;
+}
+
+.hide {
+  animation: hide 1s forwards;
+}
+.show {
+  animation: show 1s forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  0% {   opacity: 1; }
+  99% {
+    opacity: 0;
+    transform: scale(1);
+    visibility: visible;
+  }
+  100% {
+    visibility: none;
+    transform: scale(0);
+  }
+}
+
+@keyframes darken {
+  0% {
+    -webkit-filter: none;
+  }
+  100% {
+    -webkit-filter: brightness(0.4) blur(5px);
+  }
+}
+
+@keyframes pulse {
+  0% { background-color: rgba(255, 255, 255, 0.4); }
+  50% {  background-color: rgba(255, 255, 255, 0.2); }
+  100% {  background-color: rgba(255, 255, 255, 0.1); }
+}
+
+@keyframes fadedown {
+  0% {
+    color: transparent;
+    transform: scale(0.98) translateY(-25px)  translateZ(0);
+  }
+  25% {
+      color: inherit;
+      transform: scale(1.0) translateY(0px) translateZ(0);
+  }
+  75% {
+      color: inherit;
+      transform: scale(1.0) translateY(0px) translateZ(0);
+  }
+  100% {
+    color: transparent;
+    transform: scale(0.98) translateY(25px) translateZ(0);
+  }
+}
+
+@media (max-width: 380px) {
+  .sections {
+    width: 100%;
+  }
+  div {
+    border: 1px solid orange;
+  }
+}
+
+  </style>
 </head>
+
 <body>
 
-<div id="container">
-  <div id="header">
-    <h1><a href="/">heroku-static-site</a></h1>
+  <div class="background-image darken">
+    <div></div>
+  </div>
 
-    <div id="navigation">
-      <ul>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
-      </ul>
+    <div class="sections">
+
+      <div class="title-section">
+        <div class="title">
+          <div>Every 13 minutes a</div>
+          <div class="relationship fadedown">woman</div>
+          <div>dies from breast cancer.</div>
+        </div>
+      </div>
+
+      <div class="timer-section">
+        <div class="timer">
+          13:00:00
+        </div>
+      </div>
+
+      <div class="bar-section">
+        <div class="bar pulse">
+          <div class="progress"></div>
+        </div>
+      </div>
+
+      <div class="action-section">
+        <a class="button watchvideo">
+          The Campaign Video
+        </a>
+
     </div>
   </div>
 
 
-  <div id="main">
-
-    <div id="description">
-      <h2>What's the idea?</h2>
-      <p>Yep</p>
+  <div class="video_wrapper hide">
+    <div class="video">
+      <iframe width="100%" height="100%" src="http://www.youtube.com/embed/E_qiW7Y2fvw" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
-
-  <div id="footer">
-    &copy; 2013 No Rights Reserved.
-
-  </div>
-</div>
-
 
 </body>
+
+<script>
+// Helpers
+Element.prototype.h = function(html){
+  if(html){
+    this.innerHTML = html;
+  } else {
+    return this.innerHTML;
+  }
+}
+Element.prototype.on = Element.prototype.addEventListener;
+Element.prototype.indexOfClass = function(name){
+  if(name){
+    var classes = this.className.split(" ")
+    if(classes && classes.length){
+      return classes.indexOf(name);
+    }
+  }
+  return -1;
+}
+Element.prototype.hasClass = function(name){
+  return this.indexOfClass(name) != -1;
+}
+Element.prototype.addClass = function(name){
+  if(!this.hasClass(name)){
+    this.className += " "+name;
+  }
+}
+Element.prototype.removeClass = function(name){
+  var index = this.indexOfClass(name);
+  if(index != -1){
+    var classes = this.className.split(" ")
+    classes.splice(index, 1)
+    this.className = classes.join(" ")
+  }
+}
+
+var $ = function(selector){
+  return document.querySelectorAll(selector);
+}
+
+var repeatEvery = function repeatEvery(time, func) {
+  setTimeout(function setTimeoutCallback() {
+    func();
+    repeatEvery(time, func);
+  }, time);
+}
+
+var Timer = function Timer(){
+  this.duration = THIRTEENMIN;
+  this.endTime = Date.now() + this.duration * (Math.random() * 0.2 + 0.1);
+}
+
+Timer.prototype.reset = function(){
+  this.endTime = Date.now() + this.duration;
+}
+
+Timer.prototype.resetIfComplete = function(){
+  if(!this.time()){
+    this.reset();
+  }
+}
+
+Timer.prototype.percentComplete = function(){
+  return this.time() / this.duration;
+}
+
+Timer.prototype.time = function(){
+  return Math.max(0, this.endTime - Date.now());
+}
+
+Timer.prototype.formattedTime = function(){
+  var time = this.time();
+  var min = Math.floor(time / MIN);
+  time -= (min * MIN);
+  var sec = Math.floor(time / SEC);
+  time -= (sec * SEC);
+  var ms = Math.floor(time / 10); // 100ths of MS
+  var out = ""
+  out += (min < 10) ? "0" + min : "" + min;
+  out += ":"
+  out += (sec < 10) ? "0" + sec : "" + sec;
+  out += ":"
+  out += (ms < 10) ? "0" + ms : "" + ms;
+  return out;
+}
+
+// CONST
+var SEC = 1000;
+var MIN = 60 * SEC;
+var THIRTEENMIN = 13 * MIN;
+
+var YT_ASPECT = 1.78;
+
+// Data
+var ships = [
+  "woman",
+  "daughter",
+  "mother",
+  "sister",
+  "wife",
+  "friend",
+];
+/*
+.sort(function sort(a, b) {
+  return a.length < b.length;
+}); // Possibly check for longest width?
+*/
+
+// Elements
+var $rel = $(".relationship")[0];
+var $timer = $(".timer")[0];
+var $progress = $(".progress")[0];
+var $bar = $(".bar")[0];
+var $body = document.body;
+var $watch = $(".watchvideo")[0];
+var $video = $(".video")[0];
+var $video_wrapper = $(".video_wrapper")[0];
+var countdown = new Timer(THIRTEENMIN, true);
+
+repeatEvery(78, function updateClockRepeat(){
+  countdown.resetIfComplete();
+  $timer.h(countdown.formattedTime());
+  $progress.style.width =  100 * countdown.percentComplete() + "%";
+});
+
+var shipIdx = 0;
+repeatEvery(3 * SEC, function fadeNameRepeat(){
+  shipIdx = (shipIdx >= ships.length - 1) ? 0 : shipIdx + 1;
+  $rel.h( ships[shipIdx] );
+});
+
+$watch.on("click", function(el){
+  console.log(el);
+  $video_wrapper.removeClass("hide");
+  $video_wrapper.addClass("show");
+  $video.addClass("full");
+});
+
+$video_wrapper.on("click", function(el){
+  if(!$video_wrapper.hasClass("hide")){
+    $video.removeClass("full");
+    $video_wrapper.removeClass("show");
+    $video_wrapper.addClass("hide");
+  }
+});
+
+
+</script>
 </html>
