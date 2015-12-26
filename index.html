@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <title>Metastatic Breast Cancer Awareness - Every 13 Minutes Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/jquery.transit.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
   <style type="text/css">
 
@@ -9,33 +12,22 @@
   color: white;
 }
 html {
-  font-family: "Helvetica" sans-serif;
+  font-family: "Helvetica-Light" sans-serif;
+  /*font-family: serif;*/
 }
 body {
   color: white;
   background-color: #000000;
 }
+
 .background-image {
   z-index: -1;
   content: "";
   background-image: url(./images/balloons.jpg);
   background-position: center top;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
 }
-
 .darken {
   animation: darken 2s 0s ease-out forwards;
-}
-
-.background-image {
-  position: fixed;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  position: fixed;
 }
 
 /*
@@ -46,35 +38,24 @@ Layout
   flex-flow: column;
   align-items: center;
   justify-content: space-around;
-  max-width: 600px;
-  margin: 50px auto 0 auto;
+  width: 268px;
+  margin: 0 auto 0 auto;
 }
-.title-section {
-  margin: 30px 0;
-}
-.timer-section {
-  margin: 20px 0;
-}
-.bar-section {
-  margin: 10px 0;
-}
-.action-section{
-  margin: 40px 0;
+.section {
+  margin: 5px 0;
 }
 
 .title {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  /*flex: 0 1 auto;*/
-  font-size: 2.15em;
-  /*margin: 1.5em;*/
+  font-size: 2.5em;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-.relationship {
-  padding: 0 0.5em 0 0.5em;
+.title div {
+  padding-right: 0.31em;
 }
 
 .fadedown {
@@ -83,17 +64,17 @@ Layout
 }
 
 .timer {
-  font-size: 4.5em;
+  font-size: 3.8em;
   font-weight: bold;
   letter-spacing: 0.1em;
 }
 
 .bar,
 .progress {
-  height: 40px;
+  height: 25px;
 }
 .bar {
-  width: 350px;
+  width: 280px;
   background-color: rgba(255, 255, 255, 0.2);
 }
 .progress {
@@ -104,13 +85,12 @@ Layout
   animation-timing-function: ease-out;
 }
 .button {
-  font-size: 1.6em;
+  font-size: 1.3em;
   text-decoration: none;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: lighter;
   padding: 0.2em;
-  margin: 0.2em;
   border: 1px solid white;
 }
 .video_wrapper {
@@ -139,6 +119,20 @@ Layout
   height:65%;
 }
 
+/*
+HELPERS
+*/
+.fullscreen {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  overflow: hidden;
+}
+.hidden {
+  display: none;
+}
 .hide {
   animation: hide 1s forwards;
 }
@@ -203,56 +197,116 @@ Layout
   }
 }
 
-@media (max-width: 380px) {
-  .sections {
-    width: 100%;
-  }
-  div {
-    border: 1px solid orange;
-  }
+.project-title {
+  text-transform: uppercase;
+  z-index: 99;
+  background-color: black;
+}
+.project-title .center {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  height: 100%;
+}
+.project-title .bottom-left {
+  font-size: 2.5vw;
+  position: absolute;
+  margin: 15px;
+  bottom: 0;
+  left: 0;
+}
+.project-title .bottom-left .email,
+.project-title .bottom-left .phone {
+  text-transform: lowercase;
+  font-style: italic;
+  font-family: serif;
+}
+.project-title .center {
+  font-size: 4vw;
+}
+.project-title .hero {
+  font-family: "Oswald", sans-serif;
+  font-size: 11.5vw;
 }
 
+@media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */
+  /*div {border: 1px green solid; }*/
+}
+@media (min-width:481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .sections { width: 80%; }
+  .section { margin-top: 40px; }
+  .button { font-size: 1.8em; }
+  .timer { font-size: 4.5em; }
+  .bar { width: 400px; }
+
+  /*div {border: 1px orange solid; }*/
+}
+@media (min-width:641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  /*div {border: 1px purple solid; }*/
+}
+@media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */
+  /*div {border: 1px yellow solid; }*/
+}
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
+
+}
+@media (min-width:1281px) { /* hi-res laptops and desktops */
+
+}
   </style>
 </head>
 
 <body>
 
-  <div class="background-image darken">
-    <div></div>
-  </div>
-
-    <div class="sections">
-
-      <div class="title-section">
-        <div class="title">
-          <div>Every 13 minutes a</div>
-          <div class="relationship fadedown">woman</div>
-          <div>dies from breast cancer.</div>
-        </div>
-      </div>
-
-      <div class="timer-section">
-        <div class="timer">
-          13:00:00
-        </div>
-      </div>
-
-      <div class="bar-section">
-        <div class="bar pulse">
-          <div class="progress"></div>
-        </div>
-      </div>
-
-      <div class="action-section">
-        <a class="button watchvideo">
-          The Campaign Video
-        </a>
-
+  <div class="project-title fullscreen">
+    <div class="center">
+      <div>the</div>
+      <div class="hero">every 13 minutes</div>
+      <div>project</div>
+    </div>
+    <div class="bottom-left">
+      <div>Andrew Fuchs</div>
+      <div class="email">andrewfuchsdp@gmail.com</div>
+      <div class="phone">415.516.9135</div>
     </div>
   </div>
 
+  <div class="background-image fullscreen"></div>
 
-  <div class="video_wrapper hide">
+  <div class="sections">
+    <div class="section">
+      <div class="title">
+        <div>Every</div>
+        <div>13</div>
+        <div>minutes</div>
+        <div>a</div>
+        <div class="relationship fadedown">woman</div>
+        <div>dies</div>
+        <div>from</div>
+        <div>breast</div>
+        <div>cancer.</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="timer">
+        13:00:00
+      </div>
+    </div>
+    <div class="section">
+      <div class="bar pulse">
+        <div class="progress"></div>
+      </div>
+    </div>
+    <div class="section">
+      <a class="button watchvideo">
+        The Campaign Video
+      </a>
+    </div>
+  </div>
+
+  <div class="video_wrapper hidden">
     <div class="video">
       <iframe width="100%" height="100%" src="http://www.youtube.com/embed/E_qiW7Y2fvw" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -262,43 +316,6 @@ Layout
 
 <script>
 // Helpers
-Element.prototype.h = function(html){
-  if(html){
-    this.innerHTML = html;
-  } else {
-    return this.innerHTML;
-  }
-}
-Element.prototype.on = Element.prototype.addEventListener;
-Element.prototype.indexOfClass = function(name){
-  if(name){
-    var classes = this.className.split(" ")
-    if(classes && classes.length){
-      return classes.indexOf(name);
-    }
-  }
-  return -1;
-}
-Element.prototype.hasClass = function(name){
-  return this.indexOfClass(name) != -1;
-}
-Element.prototype.addClass = function(name){
-  if(!this.hasClass(name)){
-    this.className += " "+name;
-  }
-}
-Element.prototype.removeClass = function(name){
-  var index = this.indexOfClass(name);
-  if(index != -1){
-    var classes = this.className.split(" ")
-    classes.splice(index, 1)
-    this.className = classes.join(" ")
-  }
-}
-
-var $ = function(selector){
-  return document.querySelectorAll(selector);
-}
 
 var repeatEvery = function repeatEvery(time, func) {
   setTimeout(function setTimeoutCallback() {
@@ -369,42 +386,45 @@ var ships = [
 */
 
 // Elements
-var $rel = $(".relationship")[0];
-var $timer = $(".timer")[0];
-var $progress = $(".progress")[0];
-var $bar = $(".bar")[0];
-var $body = document.body;
-var $watch = $(".watchvideo")[0];
-var $video = $(".video")[0];
-var $video_wrapper = $(".video_wrapper")[0];
+var $rel = $(".relationship");
+var $timer = $(".timer");
+var $progress = $(".progress");
+var $bar = $(".bar");
+var $body =$(document.body);
+var $watch = $(".watchvideo");
+var $video = $(".video");
+var $videoWrap = $(".video_wrapper");
 var countdown = new Timer(THIRTEENMIN, true);
 
-repeatEvery(78, function updateClockRepeat(){
+repeatEvery(50, function updateClockRepeat(){
   countdown.resetIfComplete();
-  $timer.h(countdown.formattedTime());
-  $progress.style.width =  100 * countdown.percentComplete() + "%";
+  $timer.text(countdown.formattedTime());
+  $progress.width(100 * countdown.percentComplete() + "%");
 });
 
 var shipIdx = 0;
 repeatEvery(3 * SEC, function fadeNameRepeat(){
   shipIdx = (shipIdx >= ships.length - 1) ? 0 : shipIdx + 1;
-  $rel.h( ships[shipIdx] );
+  $rel.text( ships[shipIdx] );
 });
 
-$watch.on("click", function(el){
-  console.log(el);
-  $video_wrapper.removeClass("hide");
-  $video_wrapper.addClass("show");
-  $video.addClass("full");
+$watch.on("click", function(e){
+  $videoWrap.show();
 });
 
-$video_wrapper.on("click", function(el){
-  if(!$video_wrapper.hasClass("hide")){
-    $video.removeClass("full");
-    $video_wrapper.removeClass("show");
-    $video_wrapper.addClass("hide");
-  }
+$videoWrap.on("click", function(e){
+  $videoWrap.hide();
 });
+
+setTimeout(function fadeOut(argument) {
+  var $p = $(".project-title");
+  var $c = $(".project-title .center");
+  var $b = $(".project-title .bottom-left");
+  var height = $c.height() + $c.offset().top;
+  $p.fadeOut(2000);
+  $b.transition({duration: 5000, x : -400});
+  $c.transition({duration: 5000, y: -height })
+}, 3000);
 
 
 </script>
