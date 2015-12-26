@@ -416,7 +416,7 @@ $videoWrap.on("click", function(e){
   $videoWrap.hide();
 });
 
-setTimeout(function fadeOut(argument) {
+setTimeout(function fade() {
   var $p = $(".project-title");
   var $c = $(".project-title .center");
   var $b = $(".project-title .bottom-left");
@@ -426,6 +426,9 @@ setTimeout(function fadeOut(argument) {
   $c.transition({duration: 5000, y: -height })
 }, 3000);
 
+setTimeout(function backgroundDarken(){
+  $(".background-image").addClass("darken");
+}, 5000);
 
 </script>
 </html>
