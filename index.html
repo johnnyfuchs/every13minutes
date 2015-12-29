@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Metastatic Breast Cancer Awareness - Every 13 Minutes Project</title>
+  <meta name="viewport" content="initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="js/jquery.transit.min.js"></script>
@@ -18,6 +19,8 @@ html {
 body {
   color: white;
   background-color: #000000;
+  width: 100%;
+  zoom: 1;
 }
 
 .background-image {
@@ -25,6 +28,7 @@ body {
   content: "";
   background-image: url(./images/balloons.jpg);
   background-position: center top;
+  background-repeat: no-repeat;
 }
 .darken {
   animation: darken 2s 0s ease-out forwards;
@@ -38,18 +42,18 @@ Layout
   flex-flow: column;
   align-items: center;
   justify-content: space-around;
-  width: 268px;
+  width: 320px;
   margin: 0 auto 0 auto;
 }
 .section {
-  margin: 5px 0;
+  margin: 45px 0 0 0;
 }
 
 .title {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  font-size: 2.5em;
+  font-size: 1.9em;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -66,7 +70,12 @@ Layout
 .timer {
   font-size: 3.8em;
   font-weight: bold;
-  letter-spacing: 0.1em;
+  letter-spacing: -0.05em;
+  display: flex;
+  flex-flow: row;
+}
+.timer div {
+  padding-right: 0.2em;
 }
 
 .bar,
@@ -75,7 +84,7 @@ Layout
 }
 .bar {
   width: 280px;
-  background-color: rgba(255, 255, 255, 0.2);
+  /*background-color: rgba(255, 255, 255, 0.2);*/
 }
 .progress {
   background-color: rgba(255, 255, 255, 0.8);
@@ -93,30 +102,9 @@ Layout
   padding: 0.2em;
   border: 1px solid white;
 }
-.video_wrapper {
-  z-index: 4;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  position: fixed;
-}
+
 .video {
-  z-index: 5;
-  position: absolute;
-  width:560px;
-  height:315px;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
-}
-.video.full {
-  width:90%;
-  height:65%;
+  width: 100%;
 }
 
 /*
@@ -196,6 +184,21 @@ HELPERS
     transform: scale(0.98) translateY(25px) translateZ(0);
   }
 }
+.fadeup {
+  animation: fadeup 2s forwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes fadeup {
+  0% {
+    opacity: 0;
+    transform: scale(0.90) translateY(35px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.0) translateY(0);
+  }
+}
 
 .project-title {
   text-transform: uppercase;
@@ -232,22 +235,23 @@ HELPERS
 }
 
 @media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */
-  /*div {border: 1px green solid; }*/
+  div {border: 1px green solid; }
 }
 @media (min-width:481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
   .sections { width: 80%; }
   .section { margin-top: 40px; }
-  .button { font-size: 1.8em; }
   .timer { font-size: 4.5em; }
   .bar { width: 400px; }
 
-  /*div {border: 1px orange solid; }*/
+  div {border: 1px orange solid; }
 }
 @media (min-width:641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-  /*div {border: 1px purple solid; }*/
+  .button { font-size: 1.8em; }
+  .section { width: 100%; }
+  div {border: 1px purple solid; }
 }
 @media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */
-  /*div {border: 1px yellow solid; }*/
+  div {border: 1px yellow solid; }
 }
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
 
@@ -260,7 +264,9 @@ HELPERS
 
 <body>
 
-  <div class="project-title fullscreen">
+  <div class="background-image fullscreen"></div>
+
+  <div class="project-title fullscreen hidden">
     <div class="center">
       <div>the</div>
       <div class="hero">every 13 minutes</div>
@@ -272,8 +278,6 @@ HELPERS
       <div class="phone">415.516.9135</div>
     </div>
   </div>
-
-  <div class="background-image fullscreen"></div>
 
   <div class="sections">
     <div class="section">
@@ -289,26 +293,25 @@ HELPERS
         <div>cancer.</div>
       </div>
     </div>
-    <div class="section">
+    <div class="section fadeup ">
       <div class="timer">
         13:00:00
       </div>
     </div>
     <div class="section">
-      <div class="bar pulse">
+      <div class="bar">
         <div class="progress"></div>
       </div>
     </div>
     <div class="section">
       <a class="button watchvideo">
-        The Campaign Video
+        Watch Campaign Video
       </a>
     </div>
-  </div>
-
-  <div class="video_wrapper hidden">
-    <div class="video">
-      <iframe width="100%" height="100%" src="http://www.youtube.com/embed/E_qiW7Y2fvw" frameborder="0" allowfullscreen></iframe>
+    <div class="section">
+      <div class="video">
+        <iframe width="100%" height="100%" src="http://www.youtube.com/embed/E_qiW7Y2fvw" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 
@@ -316,7 +319,9 @@ HELPERS
 
 <script>
 // Helpers
-
+var after = function after(time, func) {
+  setTimeout(func, after);
+}
 var repeatEvery = function repeatEvery(time, func) {
   setTimeout(function setTimeoutCallback() {
     func();
@@ -396,39 +401,39 @@ var $video = $(".video");
 var $videoWrap = $(".video_wrapper");
 var countdown = new Timer(THIRTEENMIN, true);
 
-repeatEvery(50, function updateClockRepeat(){
-  countdown.resetIfComplete();
-  $timer.text(countdown.formattedTime());
-  $progress.width(100 * countdown.percentComplete() + "%");
-});
-
 var shipIdx = 0;
 repeatEvery(3 * SEC, function fadeNameRepeat(){
   shipIdx = (shipIdx >= ships.length - 1) ? 0 : shipIdx + 1;
   $rel.text( ships[shipIdx] );
 });
 
-$watch.on("click", function(e){
-  $videoWrap.show();
-});
 
-$videoWrap.on("click", function(e){
-  $videoWrap.hide();
-});
+// Staged visibility
+// $(".project-title").delay(2000).fadeOut(2000);
+// $(".project-title .bottom-left").delay(1000).fadeOut(1000);
 
-setTimeout(function fade() {
-  var $p = $(".project-title");
-  var $c = $(".project-title .center");
-  var $b = $(".project-title .bottom-left");
-  var height = $c.height() + $c.offset().top;
-  $p.fadeOut(2000);
-  $b.transition({duration: 5000, x : -400});
-  $c.transition({duration: 5000, y: -height })
-}, 3000);
-
-setTimeout(function backgroundDarken(){
+after(4000, function(){
   $(".background-image").addClass("darken");
-}, 5000);
+});
+
+after(4000, function(){
+  $(".timer").addClass("fadeup");
+  after(3000, function(){
+    $(".bar").addClass("fadeup");
+    $progress.width("100%");
+    after(3000, function(){
+
+      repeatEvery(50, function updateClockRepeat(){
+        countdown.resetIfComplete();
+        var ft = countdown.formattedTime().split(":").join("</div><div>:");
+        $timer.html("<div>"+ft+"</div>");
+        $progress.width(100 * countdown.percentComplete() + "%");
+      });
+    });
+  });
+});
+
+
 
 </script>
 </html>
