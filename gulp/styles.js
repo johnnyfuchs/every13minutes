@@ -20,9 +20,6 @@ $.gulp.task('styles', function() {
     }
 
     $.gulp.src(config.src + 'styles/*.scss')
-        .pipe(sassLint())
-        .pipe(sassLint.format())
-        .pipe(sassLint.failOnError())
         .pipe($.should(!config.prod, sourcemaps.init()))
         .pipe(sass({
             percision: 4,
