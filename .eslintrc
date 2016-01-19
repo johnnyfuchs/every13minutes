@@ -1,6 +1,6 @@
 {
     "parser": "babel-eslint",
-    
+
     "env": {
         "node": true,
         "browser": true
@@ -124,7 +124,7 @@
         "computed-property-spacing": 2,
         "consistent-this": [2, "self"],
         "eol-last": 2,
-        "indent": 2,
+        "indent": [2, 2],
         "key-spacing": 2,
         "lines-around-comment": 2,
         "new-cap": 2,
@@ -143,7 +143,7 @@
         "no-unneeded-ternary": 2,
         "object-curly-spacing": 2,
         "one-var": [2, {
-            uninitialized: "always", 
+            uninitialized: "always",
             initialized: "never"
         }],
         "operator-assignment": [2, "always"],

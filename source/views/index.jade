@@ -1,5 +1,19 @@
 extends templates/master
 
 block body
+  section.page-section
+    div.page-section__wrapper
+      h1.h1 Every 13 minutes a&nbsp;
+        span.js-word-swap woman
+        | &nbsp;dies from breast cancer.
+
+      p.timer.js-timer(role="timer" aria-live="polite" aria-atomic="true" aria-relevant="all")
+        span 00
+        | :
+        span 00
+        | :
+        span 000
+
+      // progress.timer__progress(value=10000 max=780000) // 780k milliseconds in 13 minutes
 
 block scripts
