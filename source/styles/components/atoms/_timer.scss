@@ -1,7 +1,36 @@
 .timer {
-  font-size: 8vw;
+  font-size: 12vw;
+  line-height: 0;
 
-  &:after {
+  &__countdown {
+    margin-bottom: .33em;
+    line-height: 1;
+  }
 
+  &__progress[value] {
+    width: 100%;
+    height: .5em;
+    appearance: none; // reset
+    border: none; // ff reset
+    background-color: transparent;
+    color: white;
+
+    &::-webkit-progress-bar {
+      background-color: inherit;
+    }
+
+    &::-webkit-progress-value {
+      background-color: currentColor;
+    }
+
+    &::-moz-progress-bar {
+      // can't combine with webkit rule because browser specific css is dumb
+      background-color: currentColor;
+    }
+
+    &::ms-fill {
+      // can't combine with webkit rule because browser specific css is dumb
+      background-color: currentColor;
+    }
   }
 }

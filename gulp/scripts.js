@@ -4,7 +4,6 @@ var config = require('./config.js');
 var eslint = require('gulp-eslint');
 var uglify = require('gulp-uglify');
 var source = require('vinyl-source-stream');
-var babelify = require('babelify');
 var watchify = require('watchify');
 var streamify = require('gulp-streamify');
 var browserify = require('browserify');
@@ -23,15 +22,14 @@ $.gulp.task('scripts', ['lint-scripts'], function() {
             .on('error', $.notify.onError('<%= error.message %>'))
             .pipe(source('main.js'))
             .pipe($.should(config.prod, streamify(uglify())))
-            .pipe($.should(config.prod, $.rename({ suffix: '.min' })))
+            .pipe($.should(config.prod, $.rename({suffix: '.min'})))
             .pipe($.gulp.dest(config.dest));
     }
 
     var b = browserify({
-                plugin: [collapse],
-                transform: [babelify],
-                debug: !config.prod
-            });
+        plugin: [collapse],
+        debug: !config.prod
+    }).transform('babelify', {presets: ['es2015']});
 
     if (config.watch) {
         b = watchify(b);

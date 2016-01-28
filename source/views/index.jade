@@ -2,18 +2,30 @@ extends templates/master
 
 block body
   section.page-section
-    div.page-section__wrapper
-      h1.h1 Every 13 minutes a&nbsp;
-        span.js-word-swap woman
+    .page-section__wrapper
+      h1.sr-only Every 13 minutes someone dies from breast cancer: a woman, a wife, a girl friend, a sister.
+      p.h1(aria-hidden="true") Every 13 minutes a&nbsp;
+        span.word-rotator
+          span woman
+          span wife
+          span girl friend
+          span sister
         | &nbsp;dies from breast cancer.
 
-      p.timer.js-timer(role="timer" aria-live="polite" aria-atomic="true" aria-relevant="all")
-        span 00
-        | :
-        span 00
-        | :
-        span 000
+      .timer
+        p.timer__countdown.js-timer(role="timer" aria-live="polite" aria-atomic="true" aria-relevant="all")
+          span 00
+          | :
+          span 00
+          | :
+          span 00
 
-      // progress.timer__progress(value=10000 max=780000) // 780k milliseconds in 13 minutes
+        progress.timer__progress(value=780000 max=780000) // 780k milliseconds in 13 minutes
 
+  section.page-section
+    .page-section__wrapper
+      div
+        p 4:11 PM
+        p November 4th, 2015
+      p.body-copy1 Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit. Reiciendis, ullam, repellat? Hic quis odit, eos sit. Repellat rerum sit harum itaque optio facere temporibus tempore ullam blanditiis, <strong>maiores</strong> eum vero.
 block scripts

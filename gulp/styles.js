@@ -2,7 +2,6 @@ var $ = require('./common.js');
 var config = require('./config.js');
 
 var sass = require('gulp-sass');
-var sassLint = require('gulp-sass-lint');
 var postcss = require('gulp-postcss');
 var sourcemaps = require('gulp-sourcemaps');
 
