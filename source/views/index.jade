@@ -20,8 +20,11 @@ block body
           | :
           span 00
 
-        progress.timer__progress(value=780000 max=780000) // 780k milliseconds in 13 minutes
-
+        progress.timer__progress(value=0 max=780000) // 780k milliseconds in 13 minutes
+      
+      button.button.button--unstyled.js-youtube-embed(data-src='https://youtube.com/embed/kfvxmEuC7bU')
+        p.sr-only Click to play Every 13 Minutes video
+        img(src='http://placekitten.com/200/300' alt='Every 13 Minutes video still')
   section.page-section
     .page-section__wrapper
       div

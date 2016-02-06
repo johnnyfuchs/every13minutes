@@ -10,7 +10,7 @@ module.exports = () => {
   setInterval(() => { // there has to be a better way to do this than all these nested if statements...
     msCount++;
     msTotal++;
-    // progressBar.value = msTotal; // maybe do this in a request animation frame if rendering gets janky
+    progressBar.value = msTotal; // maybe do this in a request animation frame if rendering gets janky
 
     if (msTotal === 780000) {
       msTotal = 0;

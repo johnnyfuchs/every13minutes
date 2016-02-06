@@ -1,6 +1,10 @@
 .h1 {
   text-transform: uppercase;
-  font-size: 3vw;
+  font-size: 1.8rem;
+  
+  @include mq($tablet-wide) {
+      font-size: 3vw;
+  }
 }
 
 .body-copy1 {
