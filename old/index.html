@@ -65,6 +65,7 @@ Layout
 .fadedown {
   animation: fadedown 3s infinite;
   animation-timing-function: ease-in-out;
+  transition: width 0.2s;
 }
 
 .timer {
@@ -286,7 +287,7 @@ HELPERS
         <div>13</div>
         <div>minutes</div>
         <div>a</div>
-        <div class="relationship fadedown">woman</div>
+        <div id="fadedown" class="relationship fadedown">woman</div>
         <div>dies</div>
         <div>from</div>
         <div>breast</div>
@@ -372,23 +373,9 @@ Timer.prototype.formattedTime = function(){
 var SEC = 1000;
 var MIN = 60 * SEC;
 var THIRTEENMIN = 13 * MIN;
-
 var YT_ASPECT = 1.78;
 
-// Data
-var ships = [
-  "woman",
-  "daughter",
-  "mother",
-  "sister",
-  "wife",
-  "friend",
-];
-/*
-.sort(function sort(a, b) {
-  return a.length < b.length;
-}); // Possibly check for longest width?
-*/
+
 
 // Elements
 var $rel = $(".relationship");
@@ -401,11 +388,33 @@ var $video = $(".video");
 var $videoWrap = $(".video_wrapper");
 var countdown = new Timer(THIRTEENMIN, true);
 
+
+// Data
+var ships = [
+  "woman",
+  "daughter",
+  "mother",
+  "sister",
+  "wife",
+  "friend",
+];
+
 var shipIdx = 0;
-repeatEvery(3 * SEC, function fadeNameRepeat(){
+var widths = {};
+function fadeNameRepeat(){
   shipIdx = (shipIdx >= ships.length - 1) ? 0 : shipIdx + 1;
   $rel.text( ships[shipIdx] );
-});
+  if (widths[ships[shipIdx]]) {
+    // $rel.animate({width: widths[ships[shipIdx]], duration: 200 })
+    $rel.width(widths[ships[shipIdx]]);
+  } else {
+    widths[ships[shipIdx]] = $rel.width();
+  }
+  console.log(widths);
+}
+
+var element = document.getElementById("fadedown");
+element.addEventListener("animationiteration", fadeNameRepeat, false);
 
 
 // Staged visibility
