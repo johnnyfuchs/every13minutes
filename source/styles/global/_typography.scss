@@ -1,12 +1,35 @@
 .h1 {
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 3.2em;
+  line-height: 1;
   
-  @include mq($tablet-wide) {
-      font-size: 3vw;
+  @include mq($mobile-wide) {
+    font-size: 12vw;
   }
 }
 
+.h2 {
+  font-size: 2.6em;
+  
+  @include mq($mobile-wide) {
+    font-size: 7vw;
+  }
+}
+
+.h3 {
+  font-size: 2.2em;
+  
+  @include mq($mobile-wide) {
+    font-size: 8vw;
+  }  
+}
+
 .body-copy1 {
-  font-size: 2rem;
+  font-size: 1.8em;
+  
+  @include mq($mobile-wide) {
+    font-size: 3.5vw;      
+  }
+  
+  @include mq($mobile-wide)
 }

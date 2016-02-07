@@ -1,10 +1,10 @@
 extends templates/master
 
 block body
-  section.page-section
+  section.page-section.section1
     .page-section__wrapper
       h1.sr-only Every 13 minutes someone dies from breast cancer: a woman, a wife, a girl friend, a sister.
-      p.h1(aria-hidden="true") Every 13 minutes a&nbsp;
+      p.h3(aria-hidden="true") Every 13 minutes a&nbsp;
         span.word-rotator
           span woman
           span wife
@@ -13,7 +13,7 @@ block body
         | &nbsp;dies from breast cancer.
 
       .timer
-        p.timer__countdown.js-timer(role="timer" aria-live="polite" aria-atomic="true" aria-relevant="all")
+        p.h1.timer__countdown.js-timer(role="timer" aria-live="polite" aria-atomic="true" aria-relevant="all")
           span 00
           | :
           span 00
@@ -24,11 +24,11 @@ block body
       
       button.button.button--unstyled.js-youtube-embed(data-src='https://youtube.com/embed/kfvxmEuC7bU')
         p.sr-only Click to play Every 13 Minutes video
-        img(src='http://placekitten.com/200/300' alt='Every 13 Minutes video still')
+        img(src='http://placehold.it/350x150' alt='Every 13 Minutes video still')
   section.page-section
     .page-section__wrapper
       div
-        p 4:11 PM
-        p November 4th, 2015
-      p.body-copy1 Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit. Reiciendis, ullam, repellat? Hic quis odit, eos sit. Repellat rerum sit harum itaque optio facere temporibus tempore ullam blanditiis, <strong>maiores</strong> eum vero.
+        p.h1 4:11 PM
+        p.h2 November 4th, 2015
+        p.body-copy1 Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit. Reiciendis, ullam, repellat? Hic quis odit, eos sit. Repellat rerum sit harum itaque optio facere temporibus tempore ullam blanditiis, <strong>maiores</strong> eum vero.
 block scripts
