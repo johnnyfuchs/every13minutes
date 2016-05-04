@@ -1,0 +1,15 @@
+.figure {
+  &__image {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+
+  &--andrew {
+    .figure__image {
+      height: 25vh;
+      width: 25vh;
+      margin-bottom: 2rem;
+    }
+  }
+}

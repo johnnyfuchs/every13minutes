@@ -4,13 +4,13 @@ block body
   section.page-section.section1
     .page-section__wrapper
       h1.sr-only Every 13 minutes someone dies from breast cancer: a woman, a wife, a girl friend, a sister.
-      p.h3(aria-hidden="true") Every 13 minutes a&nbsp;
+      p.page-title(aria-hidden="true") Every 13 minutes a&nbsp;
         span.word-rotator
           span woman
-          span wife
-          span girl friend
-          span sister
-        | &nbsp;dies from breast cancer.
+          // span wife
+          // span girl friend
+          // span sister
+        | dies from breast cancer.
 
       .timer
         p.h1.timer__countdown.js-timer(role="timer" aria-live="polite" aria-atomic="true" aria-relevant="all")
@@ -21,14 +21,26 @@ block body
           span 00
 
         progress.timer__progress(value=0 max=780000) // 780k milliseconds in 13 minutes
-      
-      button.button.button--unstyled.js-youtube-embed(data-src='https://youtube.com/embed/kfvxmEuC7bU')
+
+      button.button.button--unstyled.js-youtube-embed(type='button' data-src='https://youtube.com/embed/E_qiW7Y2fvw')
         p.sr-only Click to play Every 13 Minutes video
         img(src='http://placehold.it/350x150' alt='Every 13 Minutes video still')
   section.page-section
     .page-section__wrapper
-      div
-        p.h1 4:11 PM
-        p.h2 November 4th, 2015
-        p.body-copy1 Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit. Reiciendis, ullam, repellat? Hic quis odit, eos sit. Repellat rerum sit harum itaque optio facere temporibus tempore ullam blanditiis, <strong>maiores</strong> eum vero.
+      figure.figure.figure--andrew
+        img.figure__image(src='/images/andrew.jpg' alt='Picture of Andrew Fuchs')
+        figcaption
+          p.h1 4:11 PM
+          p.h2 November 4th, 2015
+          p.body-copy1 My name is Andrew Fuchs. I am a 17 year old filmmaker from San Francisco. On November 4th, 2015, I watched helplessly as breast cancer stole my mom away from me. This project is my reaction to that. I do not want anyone else to lose their loved ones to this awful disease. My goal is to help enable the research needed to end this cycle of senseless and untimely deaths.
+  section.page-section.page-section--city
+    .page-section__wrapper
+      .video-figure(role='group' aria-describedby='videoFigureDesc')
+        button.button.button--unstyled.js-youtube-embed(type='button' data-src='https://youtube.com/embed/dWQ1qH9kwAI')
+          p.sr-only Click to play video of Dr. Pamela Munster eplain what you're donating to.
+          img(src='http://placehold.it/350x150' alt='What you\'re donating for video still')
+        figure(role='group')
+          img(src='http://placehold.it/350x150' alt='')
+          figcaption#videoFigureDesc What are you donating to?
+
 block scripts

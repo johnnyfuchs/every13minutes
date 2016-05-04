@@ -6,7 +6,7 @@ module.exports = () => {
       const button = e.target.parentNode;
       const url = `${button.getAttribute('data-src')}?autoplay=1`;
       const video = document.createElement('iframe');
-      
+
       video.setAttribute('frameborder', '0');
       video.setAttribute('allowfullscreen', '');
       video.setAttribute('src', url);

@@ -3,13 +3,16 @@ include /mixins/if-ie
 doctype html
 html(lang="en")
     head
-        title
+        title Every 13 Minutes | Breast Cancer Awareness Campaign
+
+        link(rel='dns-prefetch', href='https://youtube.com')
+        link(rel='dns-prefetch', href='https://fonts.googleapis.com')
 
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, minimal-ui, initial-scale=1')
         meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
 
-        link(rel='dns-prefetch', href='https://youtube.com')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300,800')
 
         if !production
             link(rel='stylesheet', href='main.css')
@@ -23,5 +26,5 @@ html(lang="en")
             script(src='main.js')
         else
             script(src='main.min.js')
-        
+
         block scripts
